@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8" />
+  <title>Miku × 芙宁娜 · 互动舞台</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 字体 -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="miku-theme">
+  <div class="bg-orbit"></div>
+
+  <!-- 顶部导航 -->
+  <header>
+    <div class="top-bar">
+      <div class="logo-area">
+        <div class="logo-icon"></div>
+        <div>
+          <div class="logo-text-main">Miku × 芙宁娜 · 交响舞台</div>
+          <div class="logo-text-sub">ssyya.cc · 私人幻想空间</div>
+        </div>
+      </div>
+
+      <div class="top-right">
+        <div class="clock" id="clock">--:--:--</div>
+        <div class="theme-toggle">
+          <button class="theme-btn active" data-theme="miku">Miku 模式</button>
+          <button class="theme-btn" data-theme="furina">芙宁娜 模式</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主布局 -->
+  <main class="layout">
+    <!-- 侧边栏 -->
+    <aside class="side-nav">
+      <div class="side-title">STAGE MENU</div>
+      <ul class="nav-list">
+        <li class="nav-item">
+          <button class="nav-btn active" data-section="home">
+            <span class="icon">🏠</span><span>主页 · 舞台灯亮起</span>
+          </button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-btn" data-section="music">
+            <span class="icon">🎵</span><span>音乐区 · 歌姬与水神</span>
+          </button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-btn" data-section="ocean">
+            <span class="icon">🌊</span><span>水之剧场 · 记忆翻页</span>
+          </button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-btn" data-section="gallery">
+            <span class="icon">🖼️</span><span>画廊 · 碧海与霓虹</span>
+          </button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-btn" data-section="about">
+            <span class="icon">💫</span><span>关于这个小世界</span>
+          </button>
+        </li>
+      </ul>
+
+      <div class="side-mini">
+        <div>互动小统计</div>
+        <div class="counter-row">
+          <span>送出的水花：</span>
+          <strong id="wave-count">0</strong>
+        </div>
+        <button class="btn-small" id="wave-btn">✨ 点击投掷一枚水花</button>
+      </div>
+    </aside>
+
+    <!-- 右侧内容 -->
+    <section class="content-area">
+      <!-- 主页 -->
+      <div class="card section-panel active" id="section-home">
+        <div class="card-inner">
+          <div class="card-header-line">
+            <div class="card-title">欢迎来到你的 Miku × 芙宁娜 舞台</div>
+            <div class="pill">LIVE · ONLINE</div>
+          </div>
+          <div class="card-subtitle">
+            这里是你专属的幻想空间，可以放音乐、视频、日记、灵感、截图……之后都可以慢慢加。
+          </div>
+
+          <div class="tag-row">
+            <span class="tag">💠 电子歌姬 × 水之女王</span>
+            <span class="tag">🌙 夜间浏览也好看</span>
+            <span class="tag">🧩 单文件 · 直接上传到 Cloudflare Pages 就能用</span>
+          </div>
+
+          <div class="mini-grid">
+            <div class="mini-card">
+              <div class="mini-label">当前舞台模式</div>
+              <div class="mini-value" id="mode-label">Miku · 电子碧蓝</div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-label">实时时间</div>
+              <div class="mini-value" id="time-label">--:--:--</div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-label">今天的心情签</div>
+              <div class="mini-value" id="mood-label">点击下方折叠卡看看 ✨</div>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <div class="acc-item open">
+              <div class="acc-header">
+                <div class="acc-title">
+                  <span class="acc-badge">Miku</span>
+                  <span>「只要麦克风亮着，舞台就是我的宇宙。」</span>
+                </div>
+                <span class="acc-icon">▼</span>
+              </div>
+              <div class="acc-body">
+                这是一个可以慢慢扩展的网页。你可以自己改文字，把这里变成：
+                歌词收集站、碎碎念、游戏截图展示、或是专门给某个人看的小舞台。
+              </div>
+            </div>
+
+            <div class="acc-item">
+              <div class="acc-header">
+                <div class="acc-title">
+                  <span class="acc-badge">芙宁娜</span>
+                  <span>「舞台落幕前，没人知道结局。」</span>
+                </div>
+                <span class="acc-icon">▶</span>
+              </div>
+              <div class="acc-body">
+                没有一定要给别人看，你也可以只是把它当成一个在线的「自己的房间」：
+                有喜欢的颜色、有喜欢的角色、也有只有自己看得懂的暗号。
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 音乐 / 视频卡片 -->
+      <div class="card section-panel" id="section-music">
+        <div class="card-inner">
+          <div class="card-header-line">
+            <div class="card-title">音乐与视频 · 舞台中央</div>
+            <div class="pill">MEDIA STAGE</div>
+          </div>
+          <div class="card-subtitle">
+            这里预留给你放视频和音乐。你可以替换成自己的 mp4 链接、Vocaloid Demo、游戏录屏、或直播录像。
+          </div>
+
+          <div class="video-wrapper">
+            <!-- 你可以把 src 改成你自己的 mp4 链接 -->
+            <video controls poster="" id="main-video">
+              <source src="" type="video/mp4" />
+              你的浏览器不支持 HTML5 video。
+            </video>
+          </div>
+          <div class="video-tip">
+            <span>提示：把 <code>source</code> 里的 <code>src=""</code> 换成你自己的直链，就能在这里播放。</span>
+            <span style="font-size:0.78rem;">例：录屏 / Miku 曲 / 芙宁娜剪辑</span>
+          </div>
+
+          <div style="margin-top:10px;font-size:0.8rem;color:#c1d6ff;">
+            如果你想嵌入 YouTube/Bilibili，也可以把上面的视频改成 <code>&lt;iframe&gt;</code>，例如：
+            <br />&lt;iframe src="你的分享链接" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+          </div>
+
+          <div class="memory-container">
+            <div class="memory-box" id="playlist-box">
+              <div class="memory-title">小小播放清单（只是文字示意，可以自己改名和顺序）</div>
+              <div class="memory-text" id="playlist-text">
+                1. 「虚无与记忆的交汇」<br>
+                2. 「钟表可以回到起点，却已不是昨天」<br>
+                3. 「在水面上起舞的电子光」<br>
+                4. 「这次，只唱给你一个人听」
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 水之剧场 / 翻页记忆 -->
+      <div class="card section-panel" id="section-ocean">
+        <div class="card-inner">
+          <div class="card-header-line">
+            <div class="card-title">水之剧场 · 记忆翻页</div>
+            <div class="pill">MEMORY PAGES</div>
+          </div>
+          <div class="card-subtitle">
+            把这里当成一本会翻页的小册子，用来记录日记、台词、脑洞、跑团剧情、或梦境碎片。
+          </div>
+
+          <div class="memory-container">
+            <div class="memory-box">
+              <div class="memory-title" id="mem-title">第 1 页 · 舞台灯光亮起的那一刻</div>
+              <div class="memory-text" id="mem-text">
+                今天的水面很安静，只剩下屏幕的光和耳机里的节奏。<br>
+                Miku 的声线在高处盘旋，芙宁娜的独白在水下回响。<br>
+                没有观众也没关系——此刻的舞台，只属于我。
+              </div>
+              <div class="memory-footer">
+                <div class="pager-state" id="pager-state">1 / 3</div>
+                <div class="pager-btns">
+                  <button class="pager-btn" id="prev-page">上一页</button>
+                  <button class="pager-btn" id="next-page">下一页</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="font-size:0.8rem;color:#b6c6ff;margin-top:10px;">
+            你可以打开这个 HTML 文件，搜索 <code>memoryPages</code>，
+            把里面的文字换成你自己的故事。Cloudflare Pages 部署后，随时可以重新上传更新。
+          </div>
+        </div>
+      </div>
+
+      <!-- 画廊 -->
+      <div class="card section-panel" id="section-gallery">
+        <div class="card-inner">
+          <div class="card-header-line">
+            <div class="card-title">画廊 · 碧海与霓虹</div>
+          <div class="pill">GALLERY</div>
+          </div>
+          <div class="card-subtitle">
+            这里预留给立绘、截图、手机壳设计、或者你喜欢的配色方案。现在先用占位图，你之后可以把链接换成自己的图床。
+          </div>
+
+          <div class="mini-grid">
+            <div class="mini-card">
+              <div class="mini-label">Miku 主题图（示意）</div>
+              <div class="mini-value">
+                <a class="link" href="https://www.pixiv.net" target="_blank" rel="noopener noreferrer">在新标签页打开图站</a><br>
+                或直接把你自己的图片链接塞进 &lt;img&gt; 标签里。
+              </div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-label">芙宁娜 舞台感设计</div>
+              <div class="mini-value">
+                你可以用蓝色、水、玻璃反射这类关键词，自己找参考图，再慢慢替换掉这里的文案。
+              </div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-label">手机壳 / 布景 / Logo</div>
+              <div class="mini-value">
+                未来可以在这里做一个「周边墙」，专门放你设计的小物照片。
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:12px;font-size:0.8rem;color:#c6d4ff;">
+            如果你想做成真正的图片墙，可以在这里加多几个 <code>&lt;img&gt;</code>，配合 CSS 的 grid。之后要的话我也可以直接帮你写好。
+          </div>
+        </div>
+      </div>
+
+      <!-- 关于 -->
+      <div class="card section-panel" id="section-about">
+        <div class="card-inner">
+          <div class="card-header-line">
+            <div class="card-title">关于这个小世界</div>
+            <div class="pill">ABOUT THIS PLACE</div>
+          </div>
+          <div class="card-subtitle">
+            这里可以放一个简单的介绍：是谁的舞台、想做什么、为什么会存在这个网页。
+            现在只是一个默认版本，你完全可以把所有文字换成你的设定。
+          </div>
+
+          <div class="memory-box">
+            <div class="memory-title">设定草稿</div>
+            <div class="memory-text">
+              · 舞台所有权：<strong>你自己</strong><br>
+              · 常驻角色：<strong>初音未来、芙宁娜、以及你原创的那个人</strong><br>
+              · 主要用途：放视频、记日记、写歌词、存梗、贴截图、发呆。<br><br>
+              这个网页只是一个起点，真正有趣的部分，是你往里面塞了什么。
+            </div>
+          </div>
+
+          <div class="mini-grid">
+            <div class="mini-card">
+              <div class="mini-label">如何更新内容？</div>
+              <div class="mini-value">
+                打开 <code>index.html</code> → 用编辑器修改文字/链接 → 再次上传到 Cloudflare Pages。
+              </div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-label">未来可以加什么？</div>
+              <div class="mini-value">
+                评论区（静态方案）、音乐播放器列表、随机语录、甚至一个小小游戏。
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> ssyya.cc · Miku × 芙宁娜 个人舞台 · 单文件版<br>
+    （如果你想做多页面或更复杂的交互，可以再叫我一轮，我帮你继续往上堆功能。）
+  </footer>
+
+  <script>
+    // 实时时钟
+    function updateClock() {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      const s = String(now.getSeconds()).padStart(2, '0');
+      const timeStr = h + ':' + m + ':' + s;
+      document.getElementById('clock').textContent = timeStr;
+      document.getElementById('time-label').textContent = timeStr;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // 年份
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // 主题切换
+    const themeButtons = document.querySelectorAll('.theme-btn');
+    const modeLabel = document.getElementById('mode-label');
+
+    function setTheme(theme) {
+      document.body.classList.remove('miku-theme', 'furina-theme');
+      document.body.classList.add(theme + '-theme');
+      themeButtons.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.theme === theme);
+      });
+      modeLabel.textContent =
+        theme === 'miku'
+          ? 'Miku · 电子碧蓝'
+          : '芙宁娜 · 水之剧场';
+    }
+
+    themeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        setTheme(btn.dataset.theme);
+      });
+    });
+
+    // 初始主题
+    setTheme('miku');
+
+    // 导航切换 section
+    const navButtons = document.querySelectorAll('.nav-btn');
+    const sections = document.querySelectorAll('.section-panel');
+
+    navButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.section;
+        navButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        sections.forEach(sec => {
+          sec.classList.toggle('active', sec.id === 'section-' + target);
+        });
+      });
+    });
+
+    // 水花计数
+    const waveBtn = document.getElementById('wave-btn');
+    const waveCountEl = document.getElementById('wave-count');
+    let waveCount = 0;
+
+    waveBtn.addEventListener('click', () => {
+      waveCount++;
+      waveCountEl.textContent = waveCount;
+      waveBtn.textContent = '✨ 水花 +1！再来一枚？';
+      // 小抖动动画
+      waveBtn.style.transform = 'scale(1.06)';
+      setTimeout(() => waveBtn.style.transform = 'scale(1)', 120);
+    });
+
+    // 折叠互动区
+    const accItems = document.querySelectorAll('.acc-item');
+    accItems.forEach(item => {
+      const header = item.querySelector('.acc-header');
+      header.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        accItems.forEach(i => {
+          i.classList.remove('open');
+          const icon = i.querySelector('.acc-icon');
+          if (icon) icon.textContent = '▶';
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          const icon = item.querySelector('.acc-icon');
+          if (icon) icon.textContent = '▼';
+        }
+      });
+    });
+
+    // 翻页记忆内容
+    const memoryPages = [
+      {
+        title: '第 1 页 · 舞台灯光亮起的那一刻',
+        text:
+          '今天的水面很安静，只剩下屏幕的光和耳机里的节奏。<br>' +
+          'Miku 的声线在高处盘旋，芙宁娜的独白在水下回响。<br>' +
+          '没有观众也没关系——此刻的舞台，只属于我。'
+      },
+      {
+        title: '第 2 页 · 电子与水的对话',
+        text:
+          '如果声音可以变成颜色，那么电子音大概是青绿色的霓虹。<br>' +
+          '而芙宁娜的台词，是在水面上反射出的月光。<br>' +
+          '它们并不冲突，只是在同一个夜里，选择了不同的方式发光。'
+      },
+      {
+        title: '第 3 页 · 幕间休息的独白',
+        text:
+          '并不是每一天都要热闹，也不是每一次都要被理解。<br>' +
+          '有时候，把喜欢的东西摆在自己看得见的地方，就已经够了。<br>' +
+          '如果这页的文字能被未来的我看到，那大概也是一种小小的奇迹。'
+      }
+    ];
+
+    let currentPage = 0;
+    const memTitle = document.getElementById('mem-title');
+    const memText = document.getElementById('mem-text');
+    const pagerState = document.getElementById('pager-state');
+    const prevBtn = document.getElementById('prev-page');
+    const nextBtn = document.getElementById('next-page');
+
+    function renderPage(index) {
+      const page = memoryPages[index];
+      memTitle.innerHTML = page.title;
+      memText.innerHTML = page.text;
+      pagerState.textContent = (index + 1) + ' / ' + memoryPages.length;
+      prevBtn.disabled = index === 0;
+      nextBtn.disabled = index === memoryPages.length - 1;
+    }
+
+    prevBtn.addEventListener('click', () => {
+      if (currentPage > 0) {
+        currentPage--;
+        renderPage(currentPage);
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (currentPage < memoryPages.length - 1) {
+        currentPage++;
+        renderPage(currentPage);
+      }
+    });
+
+    renderPage(0);
+  </script>
+</body>
+</html>
